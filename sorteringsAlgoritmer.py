@@ -4,10 +4,9 @@ import random, tests
 def insertionSort(items):
     items = items.copy()
     for x in range(0, len(items)):
-        for y in range(0, len(items)):
-            if y < x:
-                if items[x] < items[y]:
-                    items[x], items[y] = items[y], items[x]
+        for y in range(x, len(items)):
+            if items[x] > items[y]:
+                items[x], items[y] = items[y], items[x]
     return items
 
 
