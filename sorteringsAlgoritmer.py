@@ -10,12 +10,12 @@ def badSelectionSort(items):
     return items
 
 
-def bubbleSort(items):
-    items = items.copy()
-    for x in range(0,len(items)):
-        for y in range(1,len(items)-x):
-            if items[y] < items[y-1]:
-                items[y-1],items[y] = items[y],items[y-1]
+def bubbleSort(items): #Definere den nye algoritme
+    items = items.copy() #copiere den randomiseret liste
+    for x in range(0,len(items)): # den løkker der gøre listen mindre
+        for y in range(1,len(items)-x): #den løkke der bytter
+            if items[y] < items[y-1]: #hvis den tal lige før er større
+                items[y-1],items[y] = items[y],items[y-1] #byt plads
 
 
     return items
