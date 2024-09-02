@@ -30,10 +30,38 @@ def bubbleSort(items): #Definere den nye algoritme
 
     return items
 
+def MergeSort(items):
+    items = items.copy()
+    if len(items) > 1:
+        halvListe = len(items)//2
+        liste1 = items[:halvListe]
+        liste2 = items[halvListe:]
+
+        liste1 = MergeSort(liste1)
+        liste2 = MergeSort(liste2)
+
+        i = j = k = 0
+
+        while i < len(liste1) and j < len(liste2):
+            if liste1[i] < liste2[j]:
+                items[k] = liste1.pop(i)
+            else:
+                items[k] = liste2.pop(j)
+            k += 1
+
+        while i < len(liste1):
+            items[k] = liste1.pop(i)
+            k += 1
+
+        while j < len(liste2):
+            items[k] = liste2.pop(j)
+            k += 1
+
+    return items
 
 if __name__ == '__main__':
     ## Skriv navnet på den algoritme, der skal testes
-    algorithm = SelectionSort
+    algorithm = MergeSort
 
     passedTest = True
     for i in range(10):
