@@ -12,7 +12,7 @@ def badSelectionSort(items): #Definere ny algoritme
 def SelectionSort(items): #Definere ny algoritme
     items = items.copy() #Laver en kopi af listen
     for x in range(0, len(items)): #Opretter en løkke fra 0 til listens længde
-        IndexOfMin = items[x] #Laver en variabel for den mindste værdi og sætter lig med x
+        IndexOfMin = x #Laver en variabel for den mindste værdi og sætter lig med x
         for y in range(x, len(items)): #Opretter en løkke fra x til listens længde
             if items[IndexOfMin] > items[y]: #Tjekker om den mindste værdi fundet er større end y
                 IndexOfMin = y #Hvis y er mindre end den mindste værdi bliver det den nye mindste
@@ -22,7 +22,7 @@ def SelectionSort(items): #Definere ny algoritme
 
 def bubbleSort(items): #Definere den nye algoritme
     items = items.copy() #Kopiere den randomiseret liste
-    for x in range(0,len(items)): # den løkker der gøre listen mindre
+    for x in range(0,len(items)): # Den løkker der gøre listen mindre
         for y in range(1,len(items)-x): #den løkke der bytter
             if items[y] < items[y-1]: #hvis den tal lige før er større
                 items[y-1],items[y] = items[y],items[y-1] #byt plads
@@ -30,15 +30,15 @@ def bubbleSort(items): #Definere den nye algoritme
 
     return items
 
-def MergeSort(items):
-    items = items.copy()
-    if len(items) > 1:
+def mergeSort(items): #Definere den nye algoritme
+    items = items.copy() #Kopiere listen
+    if len(items) > 1: #Tjekker om listen
         halvListe = len(items)//2
         liste1 = items[:halvListe]
         liste2 = items[halvListe:]
 
-        liste1 = MergeSort(liste1)
-        liste2 = MergeSort(liste2)
+        liste1 = mergeSort(liste1)
+        liste2 = mergeSort(liste2)
 
         i = j = k = 0
 
@@ -61,7 +61,7 @@ def MergeSort(items):
 
 if __name__ == '__main__':
     ## Skriv navnet på den algoritme, der skal testes
-    algorithm = MergeSort
+    algorithm = SelectionSort
 
     passedTest = True
     for i in range(10):
