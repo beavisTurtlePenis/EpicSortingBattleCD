@@ -33,7 +33,7 @@ def bubbleSort(items): #Definere den nye algoritme
 def mergeSort(items): #Definere den nye algoritme
     items = items.copy() #Kopiere listen
     if len(items) > 1: #Tjekker om listen
-        halvListe = len(items)//2
+        halvListe = len(items)//2 #Halv
         liste1 = items[:halvListe]
         liste2 = items[halvListe:]
 
