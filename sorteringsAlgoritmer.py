@@ -79,7 +79,7 @@ def mergeSort(items): #Definere den nye algoritme
 
 
 
-
+''
 
 def combSort(items):
     items = items.copy()
