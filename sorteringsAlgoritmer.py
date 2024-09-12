@@ -1,5 +1,5 @@
 import random, tests
-
+""""
 
 def badSelectionSort(items): #Definere ny algoritme
     items = items.copy() #Laver en kopi af listen
@@ -58,10 +58,54 @@ def mergeSort(items): #Definere den nye algoritme
             k += 1
 
     return items
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def combSort(items):
+    items = items.copy()
+    gap = len(items)
+    shrink = 1.3
+    Sorted = False
+    while Sorted == False:
+        gap = int(gap / shrink)
+        if gap <= 1:
+            gap = 1
+            Sorted = True
+        elif gap == 9 or gap == 10:
+            gap = 11
+
+        i = 0
+        while i + gap < len(items):
+            if items[i] > items[i + gap]:
+                items[i],items[i + gap] = items[i + gap],items[i]
+                Sorted = False
+            i += 1
+    return items
+
 
 if __name__ == '__main__':
     ## Skriv navnet på den algoritme, der skal testes
-    algorithm = SelectionSort
+    algorithm = combSort
 
     passedTest = True
     for i in range(10):
