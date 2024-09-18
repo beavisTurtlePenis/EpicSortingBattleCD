@@ -1,5 +1,5 @@
 import random, tests
-""""
+
 
 def badSelectionSort(items): #Definere ny algoritme
     items = items.copy() #Laver en kopi af listen
@@ -33,53 +33,32 @@ def bubbleSort(items): #Definere den nye algoritme
 def mergeSort(items): #Definere den nye algoritme
     items = items.copy() #Kopiere listen
     if len(items) > 1: #Tjekker om listen
-        halvListe = len(items)//2 #Halv
-        liste1 = items[:halvListe]
+        halvListe = len(items)//2 #Opretter en variabel af halvdelen af listen
+        liste1 = items[:halvListe] #Opdeler liste i to dele
         liste2 = items[halvListe:]
 
-        liste1 = mergeSort(liste1)
+        liste1 = mergeSort(liste1) #Bruger mergesort på begge lister
         liste2 = mergeSort(liste2)
 
-        i = j = k = 0
+        k = 0 #opretter en variabel som holder styr på index af den sorterede liste
 
-        while i < len(liste1) and j < len(liste2):
-            if liste1[i] < liste2[j]:
-                items[k] = liste1.pop(i)
+        while 0 < len(liste1) and 0 < len(liste2): #Laver en løkke som tjekker om der stadig er elementer i listerne
+            if liste1[0] < liste2[0]: #Tjekker om elementet i liste1 er mindre end i liste2
+                items[k] = liste1.pop(0) #Indsætter elementet fra liste1 hvis det er mindst
             else:
-                items[k] = liste2.pop(j)
-            k += 1
+                items[k] = liste2.pop(0) #Indsætter elementet fra liste2 hvis det er mindst
+            k += 1 #Går videre til næste index i den sorterede liste
 
-        while i < len(liste1):
-            items[k] = liste1.pop(i)
-            k += 1
+        while 0 < len(liste1): #Laver en løkke som kører når der stadig er elementer i liste1
+            items[k] = liste1.pop(0) #Lægger elementet til den sorterede liste
+            k += 1 #Går videre til næste index i den sorterede liste
 
-        while j < len(liste2):
-            items[k] = liste2.pop(j)
-            k += 1
+        while 0 < len(liste2): #Laver en løkke som kører når der stadig er elementer i liste2
+            items[k] = liste2.pop(0) #Lægger elementet til den sorterede liste
+            k += 1 #Går videre til næste index i den sorterede liste
 
-    return items
-"""
+    return items #Returnere den sorterede liste
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-''
 
 def combSort(items):
     items = items.copy()
@@ -105,7 +84,7 @@ def combSort(items):
 
 if __name__ == '__main__':
     ## Skriv navnet på den algoritme, der skal testes
-    algorithm = combSort
+    algorithm = mergeSort
 
     passedTest = True
     for i in range(10):
