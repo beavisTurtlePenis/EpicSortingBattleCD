@@ -61,25 +61,25 @@ def mergeSort(items): #Definere den nye algoritme
 
 
 def combSort(items):
-    items = items.copy()
-    gap = len(items)
-    shrink = 1.3
-    Sorted = False
-    while Sorted == False:
-        gap = int(gap / shrink)
-        if gap <= 1:
-            gap = 1
-            Sorted = True
-        elif gap == 9 or gap == 10:
-            gap = 11
+    items = items.copy() # Copier items
+    gap = len(items) # gap er længden af items
+    shrink = 1.3 #shrink valuen er sat til 1.3 for at gøre prosessen bedst
+    Sorted = False # sat sorted til false
+    while Sorted == False: #imens sorted af false
+        gap = int(gap / shrink) # dividere gap med 1.3
+        if gap <= 1: #hvis den er mindre end 1
+            gap = 1 #sæt gap til 1
+            Sorted = True #derefter sæt sorted til true
+        elif gap == 9 or gap == 10: # eller hvis gap er 9 eller 10
+            gap = 11 # sæt gap til 11
 
-        i = 0
-        while i + gap < len(items):
-            if items[i] > items[i + gap]:
-                items[i],items[i + gap] = items[i + gap],items[i]
-                Sorted = False
-            i += 1
-    return items
+        i = 0 #lav en variable
+        while i + gap < len(items): # imens at variablen samt gap er mindre end længden af items
+            if items[i] > items[i + gap]: # hvis den første element er større end den næste element med gap
+                items[i],items[i + gap] = items[i + gap],items[i] # byt plassen på de to
+                Sorted = False #sæt ssorted til false
+            i += 1 #tæl en gang op i listen
+    return items #return items
 
 
 if __name__ == '__main__':
